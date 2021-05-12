@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>The JavaScript constructor Property</h2>
+
+<p>The constructor property returns the constructor function for a variable or an
+    object.</p>
+<table>
+    <tr>
+        <td> '
+                "john".constructor <br>
+                (3.14).constructor <br>
+                false.constructor <br>
+                [1,2,3,4].constructor<br>
+                {name:'john', age:34}.constructor<br>
+                new Date().constructor<br>
+                function () {}.constructor;
+            '
+            </td>
+        <td id="demo"></td>
+    </tr>
+</table>
+<h4>This "home made" isArray() function returns true when used on an array:</h4>
+
+<p id="demo2"></p>
+<p id="demo3"></p>
+<script>
+    document.getElementById("demo").innerHTML =
+        "john".constructor + "<br>" +
+        (3.14).constructor + "<br>" +
+        false.constructor + "<br>" +
+        [1,2,3,4].constructor + "<br>" +
+        {name:'john', age:34}.constructor + "<br>" +
+        new Date().constructor + "<br>" +
+        function () {}.constructor;
+</script>
+<script>
+    <!-- same works with Date-->
+
+    var fruits = ["Banana", "Orange", "Apple", "Mango"];
+    document.getElementById("demo2").innerHTML = isArray(fruits);
+    document.getElementById("demo3").innerHTML = isArray2(fruits);
+
+
+    function isArray(myArray) {
+        return myArray.constructor.toString().indexOf("Array") > -1;
+    }
+    function isArray2(myArray) {
+        return myArray.constructor === Array;
+    }
+</script>
+
+</body>
+</html>

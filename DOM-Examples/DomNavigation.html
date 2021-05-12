@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title id="demo">Dom Navigation</title>
+</head>
+<body>
+
+    <form>
+        First Name:
+        <input id="name" type="text" value="Anna">
+    </form>
+    <br><br>
+    <p> <b>title</b> doesn't contains text. It contains <b>text node</b> with the value "Dom Navigation"</p>
+    <p id="p1"></p>
+    <p id="p2"></p>
+    <p id="p3"></p>
+    <p id="p4"></p>
+
+    <p> DOM is very useful.</p>
+    <p>First alert will display document.body</p>
+    <p>Second alert will display document.documentElement property</p>
+    <p><button id="btn">Try me!</button>
+
+    <h3>NODE NAME</h3>
+    <p onmouseover="this.innerHTML = document.getElementById('demo').nodeName">Mouse over me</p>
+    <p onmouseover="this.innerHTML = document.getElementById('btn').nodeName">Mouse over me</p>
+
+    <h3 id="h">NODE TYPE</h3>
+    <p onmouseover="this.innerHTML = document.getElementById('h').nodeType">Mouse over me</p>
+    <h3 id="h2">NODE VALUE</h3>
+    <p onmouseover="this.innerHTML = document.getElementById('name').previousSibling.nodeValue">***</p>
+
+
+    <script>
+
+    var myTitle = document.getElementById("demo").innerHTML;
+    var myTitle2 = document.getElementById("demo").firstChild.nodeValue;
+    var myTitle3 = document.getElementById("demo").childNodes[0].nodeValue;
+
+    document.getElementById("p1").innerHTML = myTitle;
+    document.getElementById("p2").innerHTML = myTitle2;
+    document.getElementById("p3").innerHTML = myTitle2;
+
+    document.getElementById("p4").innerHTML = document.getElementById("demo").innerHTML;
+
+</script>
+<script>
+    var x = document.getElementById("btn");
+    x.addEventListener("click", alert1);
+    x.addEventListener("click", alert2);
+
+    function alert1() {
+      alert(document.body.innerHTML);
+    }
+    function alert2() {
+      alert(document.documentElement.innerHTML);
+
+    }
+</script>
+</body>
+</html>

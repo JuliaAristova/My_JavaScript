@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Display Dtae</title>
+</head>
+<body>
+    <h3>Display Date</h3>
+
+    <p> Click the button to display the date </p>
+    <!-- event assigned to HTML element through event attribute-->
+    <button onclick="displayDate()">Try it!</button>
+    <p id="demo"></p>
+
+    <p> Click again to see he button to see date </p>
+    <!-- event assigned using DOM-->
+    <button id="myBtn" onclick="displayDate2()">Try it!</button>
+    <p id="demo2"></p>
+
+
+    <script>
+        function displayDate() {
+            document.getElementById("demo").innerHTML = Date();
+        }
+    </script>
+
+    <script>
+        document.getElementById("myBtn").onclick = displayDate2;
+        function displayDate2() {
+            document.getElementById("demo2").innerHTML = Date();
+        }
+    </script>
+</body>
+</html>

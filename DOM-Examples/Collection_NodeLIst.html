@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTMLCollection and NodeList</title>
+</head>
+<body>
+<div>
+    <h3 class="qs">HTMLCollection and NodeList</h3>
+    <h3 class="qs">Rainbow Colors</h3>
+    <ul>
+        <li>Red</li>
+        <li>Orange</li>
+        <li>Yellow</li>
+        <li>Green</li>
+        <li>Blue</li>
+        <li>Indigo</li>
+        <li>Violet</li>
+    </ul>
+    <p id="demo"></p>
+    <p><button onclick="myFunction()">Click me</button> </p>
+
+    <p id=""demo2"></p>
+    <p><button onclick="myFunction2()">Click me</button> </p>
+
+</div>
+
+<script>
+    function myFunction() {
+        var collection = document.getElementsByTagName("li");
+        var number = collection.length;
+        document.getElementById("demo").innerHTML = number;
+        var i;
+        for (i=0; i< number; i++) {
+            collection[i].style.color="red";
+        }
+    }
+</script>
+
+<script>
+    function myFunction2() {
+        var myNodelist = document.querySelectorAll(".qs");
+        myNodelist[1].style.backgroundColor = "red";
+        var liNodeList = document.querySelectorAll("li");
+           for (i=0; i<liNodeList.length; i++){
+            liNodeList[i].style.fontSize="18px";
+        }
+    }
+</script>
+</body>
+</html>

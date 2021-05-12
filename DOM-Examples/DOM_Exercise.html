@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM exercises</title>
+
+</head>
+<body>
+<h3 id ='text'>JS DOM paragraph style</h3>
+<div>
+    <p id="task">Clicking on the button the font, font size, and color of the paragraph text will be changed.</p>
+    <button id="jsstyle"
+            onclick="js_style()">Style</button>
+</div>
+<br/>
+
+<form id="form1" onsubmit="getFormvalue()">
+    First name: <input type="text" name="fname" value="David"><br><br>
+    Last name: <input type="text" name="lname" value="Beckham"><br><br>
+    <input type="submit" value="Submit">
+</form>
+<br/>
+<p>Return first and last name from a form </p>
+
+<p id="formData"></p>
+<p>
+    <button type="button" onclick="getFormValue()">Get form data</button>
+</p>
+<p id="p2">***</p>
+<p id="formData2">
+    <button type="button" onclick="getFormValue2()">Get form data - 2 way</button>
+</p>
+
+<p onmouseover = "style.backgroundColor ='yellow'">This paragraph become yellow when you put mouse over it</p>
+
+<h3>Insert row in a table</h3>
+<table id="sampleTable" border="1">
+    <tr><td>Row 1 cell 1</td>
+        <td>Row 1 cell 2</td></tr>
+    <tr><td>Row 2 cell 1</td>
+        <td>Row 2 cell 2</td></tr>
+</table><br>
+<input type="button" onclick="insert_Row()" value="Insert row"><br><br>
+<input type="button" onclick="changeContent()" value="Change content">
+<p id="result"></p>
+<script>
+    function js_style(){
+        var text = document.getElementById("task");
+        text.style.color = "blue";
+        text.style.fontFamily = "Comic";
+        text.style.fontSize = "20px";
+    }
+</script>
+
+    <script>
+    function getFormValue2() {
+        var x = document.getElementsByTagName("input");
+        var result =  x[0].childNodes[0].innerHTML + " " + x[1].childNodes[1].innerHTML;
+        document.getElementById("p2").innerHTML = result;
+    }
+    </script>
+
+    <script>
+    function getFormValue() {
+        var x = document.forms["form1"];
+        var text = "";
+        var i;
+        for (i = 0; i < x.length ;i++) {
+            if (x.elements[i].value!='Submit') {
+                text += x.elements[i].value + "<br>";
+            }
+        }
+        document.getElementById("formData").innerHTML = text;
+    }
+</script>
+
+<script>
+    function insert_Row(){
+;
+        var row = document.createElement("tr");
+        var table = document.getElementById("sampleTable");
+        table.appendChild(row);
+        var cell1 = document.createElement("td");
+        var text1 = document.createTextNode("Row 3 cell 1");
+        var cell2 = document.createElement("td");
+        var text2= document.createTextNode("Row 3 cell 2");
+        cell1.appendChild(text1);
+        cell2.appendChild(text2)
+        row.appendChild(cell1);
+        row.appendChild(cell2);
+
+    }
+</script>
+<script>
+    function changeContent() {
+        var cells = document.getElementsByTagName("td");
+        document.getElementById("result").innerHTML =cells[0].value;
+    }
+</script>
+</body>
+</html>

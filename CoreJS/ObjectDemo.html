@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Object</title>
+</head>
+<body>
+<h2>JavaScript Object Properties</h2>
+
+<p>There are two different ways to access an object property:</p>
+<p>You can use .property or ["property"].</p>
+
+<p id="demo"></p>
+
+<ul id="demo2"></ul>
+<p id="demo3"></p>
+<p id="demo4"></p>
+<p id="demo5"></p>
+<p id="demo6"></p>
+<p id="demo7"></p>
+<script>
+    var person = {
+        firstName: "John",
+        lastName: "Doe",
+        age: 50,
+        language: "en",
+        eyecolor:"blue",
+        phoneNumber: "NO",
+        fullName: function() {
+            return this.firstName + " " + this.lastName;
+        },
+        <!-- getter-->
+        get lang(){return this.language;},
+      <!--  get lang(){return this.language.toUpperCase();}, -->
+
+        get name() { return this.firstName + " " + this.lastName},
+        <!-- setter-->
+        set phone(value) {this.phoneNumber = value;}
+
+    }
+    var x
+    var txt = ""
+    for (x in person) {
+        txt += "<li>" + person[x] + "</li> ";
+    }
+    document.getElementById("demo").innerHTML = person.firstName + " is " + person["age"] + " years old.";
+    document.getElementById("demo2").innerHTML = txt;
+    document.getElementById("demo3").innerHTML = "Full name is: " + person.fullName();
+
+    person.nationality = "German";
+    delete person.age;
+
+    var myArray = Object.values(person);
+    document.getElementById("demo4").innerHTML = myArray;
+
+    var myString = JSON.stringify(person);
+    document.getElementById("demo5").innerHTML = myString;
+    document.getElementById("demo6").innerHTML = person.lang;
+    person.phone = "571-431-2481";
+    document.getElementById("demo7").innerHTML = person.phoneNumber;
+
+
+</script>
+
+</body>
+</html>

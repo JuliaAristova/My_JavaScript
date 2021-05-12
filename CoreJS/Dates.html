@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dates</title>
+    <style>
+        p {
+            font-size: 16px;
+            padding-left: 50px;
+          }
+    </style>
+
+</head>
+<body>
+    <h2>Date Object</h2>
+    <h3>Creating Date Object</h3>
+    <ol>
+        <li><b>new Date()</b>: current date and time</li>
+        <li><b>new Date(year, month, day, hours, minites, seconds, milliseconds)</b>: specified date and time</li>
+        <li><b>new Date(milliseconds)</b>: date passed in milliseconds </li>
+        <li><b>new Date(date string)</b>: date passed as a string</li>
+    </ol>
+
+    <p id="p1"></p>
+    <p id="p2"></p>
+    <p id="p3"></p>
+    <p id="p4"></p>
+
+    <p>
+        <button onclick="showDate()">Current date</button>
+        <button onclick="showSpecificDate()">Specified date</button>
+        <button onclick="showMsecDate()">Specified date in msec </button>
+        <button onclick="showStringDate()">Specified date as a string</button>
+    </p>
+
+    <h3>parse()</h3>
+    <p onclick="this.innerHTML = Date.parse('August 31, 1969')+ ' milliseconds'">I am older than Epoch Time by - click</p>
+
+    <h3>What month is it now?</h3>
+    <p onclick="this.innerHTML = showMonth()">Click me</p>
+
+    <h3>What day is it today?</h3>
+    <p onclick="this.innerHTML = showDay()">Click me</p>
+
+<script>
+    function showDate() {
+       var d = new Date();
+       document.getElementById("p1").innerHTML = d;
+       document.getElementById("p2").innerHTML = d.toUTCString();
+       document.getElementById("p3").innerHTML = d.toDateString();
+       document.getElementById("p4").innerHTML = d.toISOString();
+    }
+    function showSpecificDate() {
+        var d = new Date(1996, 7, 11, 21, 25, 0, 0)
+        document.getElementById("p1").innerHTML = d;
+        document.getElementById("p2").innerHTML = d.toUTCString();
+        document.getElementById("p3").innerHTML = d.toDateString();
+        document.getElementById("p4").innerHTML = d.toISOString();
+    }
+    function showMsecDate() {
+        var d = new Date(1620397934052);
+        document.getElementById("p1").innerHTML = d;
+        document.getElementById("p2").innerHTML = d.toUTCString();
+        document.getElementById("p3").innerHTML = d.toDateString();
+        document.getElementById("p4").innerHTML = d.toISOString();
+    }
+    function showStringDate() {
+        var d= new Date("May 17, 1952");
+        document.getElementById("p1").innerHTML = d;
+        document.getElementById("p2").innerHTML = d.toUTCString();
+        document.getElementById("p3").innerHTML = d.toDateString();
+        document.getElementById("p4").innerHTML = d.toISOString();
+    }
+</script>
+
+<script>
+    function showMonth() {
+        var d = new Date();
+        var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        return months[d.getMonth()];
+    }
+</script>
+<script>
+    function showDay() {
+         var d = new Date();
+         var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+         return days[d.getDay()];
+    }
+</script>
+
+</body>
+</html>

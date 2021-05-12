@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Switch</title>
+    <style>
+        body {
+            padding-left: 50px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+<h3>What day is it today?</h3>
+<button onclick="dayToday()">Click me</button>
+<h4 id="demo" onclick="this.innerHTML = isWeekend()"></h4>
+
+<script>
+    function dayToday() {
+        switch (new Date().getDay()) {
+            case 0:
+                day = "Sunday";
+                break;
+            case 1:
+                day = "Monday";
+                break;
+            case 2:
+                day = "Tuesday";
+                break;
+            case 3:
+                day = "Wednesday";
+                break;
+            case 4:
+                day = "Thursday";
+                break;
+            case 5:
+                day = "Friday";
+                break;
+            case 6:
+                day = "Saturday";
+        }
+        document.getElementById("demo").innerHTML += "Today is: " + day;
+    }
+    </script>
+
+    <script>
+    function isWeekend() {
+        var text = "";
+        switch (new Date().getDay()) {
+            case 0:
+            case 6:
+                text = "It is weekend!";
+                break;
+            case 4:
+            case 5:
+                text = "Weekend is soon!";
+                break;
+            default:
+                text = "Looking forward to a weekend!";
+        }
+        return text;
+    }
+    </script>
+</body>
+</html>

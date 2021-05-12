@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        #div1 { background-color: yellow;
+                width: 160px;
+                height: 20px;
+                padding: 40px;
+                font-size: 20px;
+                font-weight: bold;
+        }
+        #div2 { background-color: palegreen;
+            width: 160px;
+            height: 160px;
+            padding: 50px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h2 onclick="this.innerHTML = 'Ooops!'">Click on this text!</h2>
+
+    <!-- function called from the event handler-->
+    <h2 onclick="changeText(this)">Now, click on this text!</h2>
+
+    <!--mouse over - mouse out-->
+
+    <h2 onmouseover="style.color='red'" onmouseout="style.color='blue'">Mouse over this text</h2>
+
+    <br>
+    <!-- function onchange() -->
+    <p>When you leave the input field, a function is triggered which transforms the input text to upper case.</p>
+    <form>
+        Enter your first name:
+        <input type="text" id="fName" onchange="toUpper()"><br><br>
+        Enter your Last name:
+        <input type="text" id="lName" onfocus="myFocus(this)">
+    </form>
+
+    <br><br>
+    <!-- onmouseover - onmouseout -->
+    <div id="div1" onmouseover="mOver(this)" onmouseout="mOut(this)">Mouse Over Me</div>
+
+    <br><br>
+    <!-- onmousedpwn - onmouseuo -->
+    <div id="div2" onmousedown="mDown(this)" onmouseup="mUp(this)">Click Me</div>
+
+    <script>
+    function changeText(id) {
+        id.innerHTML = 'Ooops!';
+    }
+    </script>
+
+    <script>
+        function toUpper() {
+            var x = document.getElementById("fName");
+            x.value = x.value.toUpperCase();
+        }
+
+        function myFocus(x) {
+            x.style.backgroundColor = "pink";
+        }
+    </script>
+
+    <script>
+        function mOver(obj) {
+            obj.innerHTML = "Thank You";
+        }
+
+        function  mOut(obj) {
+            obj.innerHTML = "Mouse Over Me";
+        } =
+    </script>
+
+    <script>
+        function mDown(obj) {
+            obj.style.backgroundColor = "yellow";
+            obj.innerHTML = "Release Me";
+        }
+
+        function  mOut(obj) {
+            obj.style.backgroundColor = "palegreen";
+            obj.innerHTML = "Thank You";
+        }
+    </script>
+</body>
+</html>

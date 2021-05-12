@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Adding and Removing Nodes</title>
+</head>
+<body>
+<!-- to add element: 1- create , 2 - attach-->
+    <h4> Creating a new elements - append</h4>
+
+    <div id="div1">
+        <p id="p1">First paragraph</p>
+        <p id="p2">Second paragraph</p>
+        <p><button id="btn" onclick="removePar()">Try it!</button> </p>
+        <p id="p3">Third paragraph</p>
+    </div>
+    <h4> Creating a new elements - insert</h4>
+
+    <div id="div2">
+        <p id="p4">4th paragraph</p>
+        <p><button id="btn2" onclick="removePar2()">Try it!</button> </p>
+
+        <p id="p5">5th paragraph</p>
+        <p><button id="btn3" onclick="removePar3()">Try it!</button> </p>
+    </div>
+    <div id="div3">
+        <p>Click button to REPLACE a paragraph</p>
+        <p id="p6">6th paragraph</p>
+        <p><button id="btn4" onclick="replacePar()">Try it!</button> </p>
+    </div>
+
+<script>
+    <!-- create a new element -->
+    var  par = document.createElement("p");
+
+    <!-- create a text node -->
+    var node = document.createTextNode("This is new.");
+
+    <!-- append text node to paragraph -->
+    par.appendChild(node);
+
+    <!-- append new element to existing element -->
+    var element = document.getElementById("div1");
+    element.appendChild(par);
+
+</script>
+
+<script>
+    <!-- create a new element -->
+    var  par = document.createElement("p");
+
+    <!-- create a text node -->
+    var node = document.createTextNode("This is also new.");
+
+    <!-- append text node to paragraph -->
+    par.appendChild(node);
+
+    <!-- append new element to existing element -->
+    var element = document.getElementById("div1");
+    var child = document.getElementById("p2");
+
+    element.insertBefore(par, child);
+
+</script>
+
+<script>
+    <!-- remove element -->
+    function removePar() {
+        var elmnt = document.getElementById("p2");
+        elmnt.remove();
+    }
+</script>
+
+<script>
+    <!-- remove child element -->
+    function removePar2() {
+        var parent = document.getElementById("div2");
+        var child = document.getElementById("p4");
+        parent.removeChild(child);
+    }
+</script>
+
+<script>
+    <!-- remove child element - common workaround -->
+    function removePar3() {
+        var child = document.getElementById("p5");
+        child.parentNode.removeChild(child);
+    }
+</script>
+
+<script>
+    <!-- replace element -->
+    function replacePar() {
+        var par = document.createElement("p");
+        var node = document.createTextNode("This is absolutely new paragraph");
+        par.appendChild(node);
+
+        var parent = document.getElementById("div3");
+        var child = document.getElementById("p6");
+        parent.replaceChild(par, child);
+    }
+</script>
+</body>
+</html>

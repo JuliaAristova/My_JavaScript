@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <style>
+        #myDiv1, #myDiv2, #myDiv3 {
+            width: 50%;
+            background-color: coral;
+            padding: 50px;
+        }
+        #myP1, #myP2 {
+            background-color: white;
+            font-size: 20px;
+            border: 1px solid;
+            padding: 20px;
+        }
+      </style>
+      <meta charset="UTF-8">
+      <title>Event Listener</title>
+
+</head>
+<body>
+
+    <h2>JavaScript addEventListener()</h2>
+
+    <p>Example - attach click event to a button</p>
+
+    <button id="myBtn">Try it</button>
+    <p id="demo"></p>
+    <br>
+    <button id="myBtn2">Try it</button>
+
+    <h3>Two click events </h3>
+    <br>
+    <button id="myBtn3">Try it</button>
+
+
+    <h3>Many events on the same button.
+    </h3>
+    <button id="myBtn4">Try it</button>
+
+    <p id="demo2"></p>
+
+
+    <h3>addEventListener() method on the window object.</h3>
+    <p>Try resizing this browser window to trigger the "resize" event handler.</p>
+    <p id="demo3"></p>
+
+    <!-- passing parameters -->
+    <h3>Function with parameters</h3>
+    <p>Click the button to perform a calculation.</p>
+
+    <button id="myBtn5">Try it</button>
+    <p id="demo4"></p>
+
+    <h2>addEventListener() Capture Option</h2>
+    <br>
+    <div id="myDiv1">
+        <h2>Bubbling</h2>
+        <p id="myP1">Click me!</p>
+    </div>
+    <br><br>
+    <div id="myDiv2">
+        <h2>Capturing</h2>
+        <p id="myP2">Click me!</p>
+    </div>
+
+    <br><br>
+    <div id="myDiv3">
+        <h3>This div element has an onmousemove event handler that displays a random number
+            every time you move your mouse inside this orange field.</h3>
+        <h3>Click the button to remove the div's event handler.</h3>
+        <button onclick="removeHandler()" id="myBtn6">Remove</button>
+    </div>
+    <br><br>
+    <p id="demo5"></p>
+    <br><br><br>
+
+    <!-- *********** JAVASCRIPT ************* -->
+
+    <script>
+        document.getElementById("myBtn").addEventListener("click", displayDate);
+
+        function displayDate() {
+            document.getElementById("demo").innerHTML = Date();
+        }
+    </script>
+
+    <script>
+        document.getElementById("myBtn2").addEventListener("click", function(){alert("Hello world!");});
+    </script>
+
+    <!-- 2 events-->
+    <script>
+       var x = document.getElementById("myBtn3");
+       x.addEventListener("click", myFunction);
+       x.addEventListener("click", my2Function);
+
+       function  myFunction() {
+           alert("Hello World!");
+       }
+
+       function my2Function() {
+           alert("This function is also executed!");
+       }
+    </script>
+
+    <script>
+        var z = document.getElementById("myBtn4");
+        z.addEventListener("mouseover", function1 ());
+        z.addEventListener("click", function2);
+        z.addEventListener("mouseout", function3);
+
+        function function1(){
+            document.getElementById("demo2").innerHTML += "Moused over!<br>";
+        }
+        function function2(){
+            document.getElementById("demo2").innerHTML += "Moused clicked!<br>";
+        }
+        function function3(){
+            document.getElementById("demo2").innerHTML += "Moused out!<br>";
+
+        }
+    </script>
+    <script>
+        window.addEventListener("resize", function(){
+            document.getElementById("demo3").innerHTML = Math.random();
+        });
+    </script>
+
+    <!-- function with parameters-->
+    <script>
+        var a = 6;
+        var b = 4;
+        document.getElementById("myBtn5").addEventListener("click", function () { add(a, b)});
+
+        function add(a, b) {
+            var result = a + b;
+            document.getElementById("demo4").innerHTML = result;
+        }
+    </script>
+
+    <script>
+    <!-- bubbling-->
+        document.getElementById("myP1").addEventListener("click", function() {
+            alert("You clicked the white element!");
+        }, false);
+
+        document.getElementById("myDiv1").addEventListener("click", function() {
+            alert("You clicked the orange element!");
+        }, false);
+
+    <!-- capturing-->
+        document.getElementById("myP2").addEventListener("click", function() {
+            alert("You clicked the white element!");
+        }, true);
+
+        document.getElementById("myDiv2").addEventListener("click", function() {
+            alert("You clicked the orange element!");
+        }, true);
+    </script>
+
+    <!-- remove eventListener-->
+    <script>
+        document.getElementById("myDiv3").addEventListener("mousemove", myFunct);
+        function myFunct() {
+            document.getElementById("demo5").innerHTML = Math.random();
+        }
+
+        function removeHandler() {
+            document.getElementById("myDiv3").removeEventListener("mousemove", myFunct);
+        }
+    </script>
+</body>
+</html>

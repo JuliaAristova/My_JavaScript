@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dates</title>
+</head>
+<body>
+
+<h4>Expected Output : </h4>
+<p>Today is : Tuesday.<br>Current time is : 10 PM : 30 : 38</p>
+
+<p id = "p1"></p>
+<p id="p2"></p>
+
+<script>
+    var today = new Date();
+    var day = today.getDay();
+    var time = today.getHours();
+    var week = {
+        0: "Sunday",
+        1: "Monday",
+        2: "Tuesday",
+        3: "Wednesday",
+        4: "Thirsday",
+        5: "Friday",
+        6: "Saturday"
+        }
+    document.getElementById("p1").innerHTML = "Today is : " + week[day];
+    document.getElementById("p2").innerHTML = "Current time is : " + today.getHours() + " : " + today.getMinutes() + " : " + today.getSeconds();
+</script>
+</body>
+</html>
