@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+    <h3>1. Is input an Array?</h3>
+    <p id="p1"></p>
+
+    <h3>2. Clone an array</h3>
+    <p id="p2"></p>
+    <p id="p3"></p>
+    <p>Note: The slice() method creates a new array. It does not remove any elements from the source array.</p>
+
+    <script>
+    var td1 = ["w3resource", "JS"];
+    var  td2 = 123;
+
+    function is_array(inputData) {
+       return (Array.isArray(inputData)) ? true : false;
+    }
+    document.getElementById("p1").innerHTML = is_array(td1) + "<br>" + is_array(td2);
+    </script>
+
+<script>
+    var numbers = [1,2,3,4,5];
+    function cloneArray(arr) {
+        return arr.slice(0);
+    }
+    document.getElementById("p2").innerHTML = numbers.toString();
+    document.getElementById("p3").innerHTML =cloneArray(numbers).toString();
+</script>
+</body>
+</html>

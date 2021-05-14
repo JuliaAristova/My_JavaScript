@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Check Validity</title>
+</head>
+<body>
+<h4>Enter a number and click OK</h4>
+
+<input id="id1" type="number" min="100" max="300" required>
+<button id="btn1" onclick="myFunction()">OK</button>
+
+<p>If number is less than 100 or greater than 300, an error message will be displayed</p>
+<p id="demo"></p>
+
+<br><br>
+<h4>Enter a number not greater than 100 and click OK</h4>
+<input id="id2" type="number" max="100">
+<button id="btn2" onclick="myFunction2()">OK</button>
+
+<p id="demo2"></p>
+
+<br><br>
+<h4>Enter a number not less than 100 and click OK</h4>
+<input id="id3" type="number" min="100">
+<button id="btn3" onclick="myFunction3()">OK</button>
+
+<p id="demo3"></p>
+
+<script>
+    function myFunction() {
+        var inpObj = document.getElementById("id1");
+        if(!inpObj.checkValidity()) {
+            document.getElementById("demo").innerHTML = inpObj.validationMessage;
+        } else {
+            document.getElementById("demo").innerHTML = "Input OK";
+        }
+    }
+
+    function myFunction2() {
+        var text = "Input OK";
+        if (document.getElementById("id2").validity.rangeOverflow) {
+            text = "Value too large";
+        }
+        document.getElementById("demo2").innerHTML = text;
+
+    }
+
+    function myFunction3() {
+        var text = "Input OK";
+        if (document.getElementById("id3").validity.rangeUnderflow) {
+            text = "Value too small";
+        }
+        document.getElementById("demo3").innerHTML = text;
+
+    }
+</script>
+</body>
+</html>

@@ -19,9 +19,11 @@
        <button onclick="myShift()">Shift</button>
     </p>
 
+    <p id="p2"></p>
 <script>
+    var array1 = [1, 2, 3, 4, 5];
+
     function myPush() {
-        var array1 = [1, 2, 3, 4, 5];
         array1.push(6,7);
         var par = document.createElement("p");
         var node = document.createTextNode("push(): " + array1);
@@ -30,7 +32,6 @@
         element.appendChild(par);
     }
     function myPop() {
-        var array1 = [1, 2, 3, 4, 5];
         array1.pop();
         var par = document.createElement("p");
         var node = document.createTextNode("pop(): " + array1);
@@ -39,7 +40,6 @@
         element.appendChild(par);
     }
     function myUnshift() {
-        var array1 = [1, 2, 3, 4, 5];
         array1.unshift(0);
         var par = document.createElement("p");
         var node = document.createTextNode("unshift(): " + array1);
@@ -48,7 +48,6 @@
         element.appendChild(par);
     }
     function myShift() {
-        var array1 = [1, 2, 3, 4, 5];
         array1.shift();
         var par = document.createElement("p");
         var node = document.createTextNode("shift(): " + array1);
@@ -56,6 +55,8 @@
         var element = document.getElementById("div1");
         element.appendChild(par);
     }
+
+    document.getElementById("p2").innerHTML = "Stringtify: " + JSON.stringify(array1);
 </script>
 </body>
 </html>

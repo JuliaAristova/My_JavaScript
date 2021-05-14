@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Regular Expression</title>
+</head>
+<body>
+<h3>Search && Replace with Regular Expression</h3>
+
+<p id="demo1">Please visit Microsoft!</p>
+
+<h4>Search W3Schools ignore cases</p>
+
+<button onclick="myFunction1()">Try it</button>
+<p id="demo2"></p>
+
+
+<h4>Replace "Microsoft" with "W3Schools"</h4>
+<button onclick="myFunction2()">Try it</button>
+<p id="demo3"></p>
+
+    <h4>Global search</h4>
+    <p id="p1">There is a book, there is a notebook, there is a pen, there is a cup.</p><br>
+    <button onclick="myFunction3()">Try it</button>
+    <p id="demo4"></p>
+
+    <h4>Multiline search</h4>
+    <p>There is a book,there is a notebook, there is a pen, there is a cup.</p>
+    <button onclick="myFunction4()">Try it</button>
+    <p id="demo5"></p>
+
+    <h4>Global search for a character "a", and numbers 1-4, and "red" or "green" or "LO" at the beginning or end</h4>
+    <p>There is a red book, there is a yellow notebook, there is a green pen, there is a black cup. 123456789</p>
+    <button onclick="myFunction5()">Try it</button>
+    <p id="demo6"></p>
+
+    <h4>Quantifiers</h4>
+    <p>0, 1, or more </p>
+    <button onclick="myFunction6()">Try it</button>
+    <p id="demo7"></p>
+    <p id="demo8"></p>
+<script>
+    function myFunction1() {
+        var str = document.getElementById("demo1").innerHTML;
+        var txt = str.search(/microsoft/i);
+        document.getElementById("demo2").innerHTML = txt;
+    }
+
+    function myFunction2() {
+        var str = document.getElementById("demo1").innerHTML;
+        var txt = str.replace(/microsoft/i,"W3Schools");
+        document.getElementById("demo3").innerHTML = txt;
+    }
+
+    function myFunction3() {
+        var str = "There is a book, there is a notebook, there is a pen, there is a cup.";
+        var patt1 = /is/g;
+        var result = str.match(patt1);
+
+        document.getElementById("demo4").innerHTML = result;
+    }
+
+    function myFunction4() {
+        var str = "The\nre is a book re, the\nre is a notebook re, the\nre is a pen re, the\nre is a cup re.";
+        var patt1 = /^re/m;
+        var result = str.match(patt1);
+
+        document.getElementById("demo5").innerHTML = result;
+    }
+    function myFunction5() {
+        var str = "There is a red book, there is a yellow notebook, there is a green pen, there is a black cup.123456789";
+        var str2 = "HELLO, LOOK AT YOU!";
+        var patt1 = /[a]/g;
+        var patt2 = /[1-4]/g;
+        var patt3 = /(red|green)/g;
+        var patt4 = /\d/g;
+        var patt5 = /\bLO/;
+        var patt6 = /LO\b/;
+        var result = str.match(patt1);
+        var result2 = str.match((patt2))
+        var result3 = str.match((patt3))
+        var result4 = str.match(patt4);
+        var result5 = str2.search(patt5);
+        var result6 = str2.search(patt6);
+
+
+        document.getElementById("demo6").innerHTML = result + "<br>" + result2 + "<br>" + result3 + "<br>"
+        + result4 + "<br>" + result5 +"<br>" + result6;
+    }
+
+    function myFunction6() {
+        var str1 = "Hellooo World! Hello W#Schools!";
+        var str2 = "1, 100 or 1000?";
+
+        var patt1 = /o+/g;
+        var patt2 = /lo*/g;
+        var patt3 = /10?/g;
+        var patt4 = /(e|o)/g;
+
+        var result1 = str1.match(patt1);
+        var result2 = str1.match(patt2);
+        var result3 = str2.match(patt3);
+
+        document.getElementById("demo7").innerHTML = result1 + "<br>" + result2 + "<br>" + result3 + "<br>"
+        +patt4.test(str1) + "<br>" +
+        /2/.test("1, 100 or 1000?");
+
+        var obj = /e/.exec("The best things in life are free!");
+        document.getElementById("demo8").innerHTML =
+            "Found " + obj[0] + " in position " + obj.index + " in the text: " + obj.input;
+    }
+</script>
+</body>
+</html>

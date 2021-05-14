@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form Validation</title>
+
+    <script>
+        function validateForm() {
+            var x = document.forms["myForm"]["fname"].value;
+            if (x=="") {
+                alert("Name must be filled out");
+                return false;
+            }
+        }
+    </script>
+
+</head>
+<body>
+    <form name="myForm" action="../DateTime/Dates.html" onsubmit="return validateForm()" method="post">
+        First name: <input type="text" name="fname"><br><br>
+        Last name: <input type="text" name="lname" required> <!--automatic validation-->
+
+        <input type="submit" value="Submit">
+        <br><br>
+        Enter a number between 1 and 10:
+        <input id="numb">
+        <button type="button" onclick="myFunction()">Submit</button>
+    </form>
+
+    <p id="demo"></p>
+
+<script>
+    function myFunction() {
+        var x, text;
+        x = document.getElementById("numb").value;
+
+        if(isNaN(x) || x <1 || x> 10){
+            text = "Input is not valid!";
+        }
+        else {
+            text = "Input is OK.";
+        }
+        document.getElementById("demo").innerHTML = text;
+
+    }
+</script>
+</body>
+</html>

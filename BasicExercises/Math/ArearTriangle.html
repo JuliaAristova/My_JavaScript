@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Area of Triangl</title>
+</head>
+<body>
+<h3>Area of Triangle (Heron's formular)</h3>
+<p> Area of triangle with the sides 5, 6 and 7 is:</p>
+<p id="p1"></p>
+
+<script>
+    var a=5, b=6, c=7;
+    var semiPer = (a+b+c)/2;
+    var area = Math.sqrt( (semiPer + (semiPer-a)+(semiPer-b)*(semiPer-c)));
+    document.getElementById("p1").innerHTML = area;
+
+</script>
+</body>
+</html>
