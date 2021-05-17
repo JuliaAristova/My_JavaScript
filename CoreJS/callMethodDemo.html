@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Call method</title>
+</head>
+<body>
+<p>This example calls the fullName method of person, using it on person1:</p>
+<p id="demo"></p>
+
+<p>This example calls the fullName method of person, using it on person2:</p>
+<p id="demo2"></p>
+<p id="demo3"></p>
+
+<script>
+    var person = {
+        fullName: function() {
+            return this.firstName + " " + this.lastName;
+        }
+    }
+    var person1 = {
+        firstName:"John",
+        lastName: "Doe"
+    }
+    var person2 = {
+        firstName:"Mary",
+        lastName: "Doe"
+    }
+    var x = person.fullName.call(person1);
+    document.getElementById("demo").innerHTML = x;
+
+    var humanBeing = {
+        fullName: function(city, country) {
+            return this.firstName + " " + this.lastName + "," + city + "," + country;
+        }
+    }
+    var humanBeing1 = {
+        firstName:"John",
+        lastName: "Doe"
+    }
+    var humanBeing2 = {
+        firstName:"Mary",
+        lastName: "Doe"
+    }
+    var x = humanBeing.fullName.call(humanBeing2, "Oslo", "Norway");
+    document.getElementById("demo2").innerHTML = x;
+
+    <!--The apply() method accepts arguments in an array -->
+    var y = humanBeing.fullName.apply(humanBeing1, ["Oslo", "Norway"]);
+    document.getElementById("demo3").innerHTML = y;
+</script>
+
+
+</body>
+</html>
