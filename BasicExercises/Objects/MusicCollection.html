@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Music Collection</title>
+</head>
+<body>
+
+<p id="p01"></p>
+<p id="p02"></p>
+<script>
+    var collection = {
+        "2548" : {
+            "album": "Slippery When Wet",
+            "artist": "Bon Jovi",
+            "tracks": [
+                "Let It Rock",
+                "You Give Love a Bad Name"
+            ]
+        },
+        "2468" : {
+            "album": "1999",
+            "artist": "Prince",
+            "tracks": [
+                "1999",
+                "Little Red Corvette"
+            ]
+        },
+        "2548" : {
+            "album": "Slippery When Wet",
+            "artist": "Bon Jovi",
+            "tracks": [
+                "Let It Rock",
+                "You Give Love a Bad Name"
+            ]
+        },
+        "1245" : {
+            "artist": "Robert PalmerBon Jovi",
+            "tracks": []
+        },
+        "5439" : {
+            "album": "ABBA Gold",
+
+        }
+    };
+
+    <!--keep a copy of the collection for tets-->
+    var collectionCopy = JSON.parse(JSON.stringify(collection));
+
+    function updateRecords(id, property, value) {
+        if(value === "") {
+            delete collection[id][property];
+        }
+        else if(property === "tracks") {
+            collection[id][property] = collection[id][property] || [];
+            collection[id][property].push(value);
+        }
+        else {
+            collection[id][property] = value;
+        }
+        return collection;
+    }
+
+    console.log(updateRecords(5439, "artist", "ABBA"));
+    console.log(collection);
+    console.log(updateRecords(2548, "tracks", "TEST"));
+    console.log(collection);
+
+    document.getElementById("p01").innerHTML = Object.values(collection);
+    document.getElementById("p02").innerHTML =JSON.stringify(collection["2468"];
+</script>
+</body>
+</html>

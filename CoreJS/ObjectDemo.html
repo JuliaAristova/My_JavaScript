@@ -18,7 +18,10 @@
 <p id="demo5"></p>
 <p id="demo6"></p>
 <p id="demo7"></p>
+<h3>Object has property</h3>
+<p id="demo8"></p>
 <script>
+
     var person = {
         firstName: "John",
         lastName: "Doe",
@@ -59,6 +62,10 @@
     person.phone = "571-431-2481";
     document.getElementById("demo7").innerHTML = person.phoneNumber;
 
+    function checkObject(obj, checkProperty) {
+        return obj.hasOwnProperty(checkProperty) ? obj[checkProperty] : "Not found";
+        }
+    document.getElementById("demo8").innerHTML = checkObject(person, "eyecolor") + " " + checkObject(person, "age");
 
 </script>
 

@@ -20,6 +20,9 @@
     </p>
 
     <p id="p2"></p>
+
+    <h3>2-dimentional array</h3>
+    <p id="p3"></p>
 <script>
     var array1 = [1, 2, 3, 4, 5];
 
@@ -57,6 +60,19 @@
     }
 
     document.getElementById("p2").innerHTML = "Stringtify: " + JSON.stringify(array1);
+
+    function multiplyArray(arr) {
+        var product = 1;
+        for(var i=0; i < arr.length; i++) {
+            for (var j=0; j < arr[i].length; j++) {
+                product *= arr[i][j];
+            }
+        }
+        return product;
+    }
+    var myArray = [ [1,2], [3,4,5], [6,7,8]];
+    document.getElementById("p3").innerHTML = multiplyArray(myArray);
+
 </script>
 </body>
 </html>

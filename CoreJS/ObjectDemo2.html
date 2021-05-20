@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Object Demo 2</title>
+</head>
+<body>
+
+            <h3>Contacts look up</h3>
+            <p id="p01"></p>
+            <p id="p02"></p>
+            <p id="p03"></p>
+
+<script>
+
+
+       var empl = [ {  "firstName": "Akira",
+                            "lastName": "Latine",
+                            "number": "06541236",
+                            "likes": ["Pizza", "Coding", "Brownie Points"]
+                        },
+                        {   "firstName": "Harry",
+                            "lastName": "Potter",
+                            "number": "06541237",
+                            "likes": ["Hogwarts", "Magic", "Hagrid"]
+                        },
+                        {  "firstName": "Sherlock",
+                           "lastName": "Holmes",
+                           "number": "06541238",
+                           "likes": ["Intriguing Cases", "Violin"]
+                        },
+                        {   "firstName": "Kristian",
+                            "lastName": "Vos",
+                            "number": "unknown",
+                            "likes": ["JavaScript", "Gaming", "Foxes"]
+                        }];
+    <!-- document.getElementById("p01").innerHTML = empl.length;-->
+       function employeeLookUp(name, prop) {
+        console.log(empl.length);
+           for (var i = 0; i < empl.length ; i++) {
+               if (empl[i].firstName === name) {
+                   return empl[i][prop] || "No such property";
+               }
+           }
+           return "No such person";
+       }
+
+       document.getElementById("p01").innerHTML = employeeLookUp("Kristian", "dislikes");
+       document.getElementById("p02").innerHTML = employeeLookUp("Anna", "likes");
+       document.getElementById("p03").innerHTML = employeeLookUp("Sherlock", "lastName");
+
+</script>
+</body>
+</html>

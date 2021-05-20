@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My music</title>
+</head>
+<body>
+<h3>Nested objects</h3>
+<p id="p01"></p>
+<h3> Array in Objects Array</h3>
+<p id="p02"></p>
+<script>
+    var myMusic = [
+    {
+        "artist": "Billy Joel",
+        "title": "Piano Man",
+        "release_yesr": 1973,
+        "formats": [
+            "CD",
+            "8T",
+            "LP"
+            ],
+        "gold": true
+    },
+    {
+        "artist": "Beau Carnes",
+        "title": "Cereal Man",
+        "release_yesr": 2003,
+        "formats": [
+            "YouTube Video",
+            "8T",
+            "LP"
+            ],
+        "gold": true
+    }
+    ];
+    document.getElementById("p02").innerHTML = myMusic[1].formats[0];
+    var myStorage = {
+        "car": {
+            "inside": {
+                "glove box": "maps",
+                "passenger seat": "crumbs"
+            },
+            "outside": {
+                "trunk": "jack"
+            }
+        }
+    };
+    var gloveBoxContent = myStorage.car.inside["glove box"];
+    document.getElementById("p01").innerHTML = gloveBoxContent;
+
+</script>
+</body>
+</html>

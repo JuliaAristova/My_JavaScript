@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <titleJSON</title>
+</head>
+<body>
+
+<p id="p01"></p>
+
+<script>
+    var str = '{ "employees" : [' +
+        '{ "firstName":"John" , "lastName":"Doe" },' +
+        '{ "firstName":"Anna" , "lastName":"Smith" },' +
+        '{ "firstName":"Peter" , "lastName":"Jones" }]}';
+    var obj = JSON.parse(str);
+
+    document.getElementById("p01").innerHTML = obj.employees[1].firstName + " " + obj.employees[1].lastName;
+
+
+
+
+</script>
+
+
+
+</body>
+</html>

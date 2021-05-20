@@ -32,6 +32,7 @@
     <h3>Average mark</h3>
     <p id="p05"></p>
 
+    <p id="p06"></p>
     <script>
     displayLarger(11, 22);
     alert("Ths sign is " + signOfProduct(-2, 3, -4));
@@ -40,6 +41,7 @@
     oddEven([23,1,44,56,7,88,9,3,5,11, 24,36,9,0,35])
     largestFrom5(34,124,5,77,-9);+
     computeAverage([80, 77, 88, 99, 68]);
+
 
     function displayLarger(a, b) {
         var larger = (a > b) ? a : (a < b) ? b : "same values";
@@ -110,8 +112,22 @@
             total += marks[i];
         }
         avg = total/5;
-        document.getElementById("p05").innerHTML = avg;
+
+        var result = (avg < 60) ? "F" : (avg < 70) ? "D" : (avg < 80) ? "C" : (avg < 90) ? "B" : "A";
+        document.getElementById("p05").innerHTML = avg + " " + result;
     }
+
+    function fizzBuzz() {
+        var result = "";
+        for (var i=0; i<=100; i++) {
+        result +=  (i%3==0 && i%5==0) ? "FizzBuzz<br>" :
+                    (i%3==0) ? "Fizz<br>" :
+                    (i%5==0) ? "Buzz<br> " : i + "<br>";
+
+        }
+        return result;
+    }
+    document.getElementById("p06").innerHTML = fizzBuzz();
     </script>
 </body>
 </html>

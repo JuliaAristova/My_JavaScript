@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Class</title>
+</head>
+<body>
+    <h2>JS Class </h2>
+    <p id="p01"></p>
+    <p id="p02"></p>
+    <p id="p03"></p>
+    <h3>"extend" - to extend from another class. <br>"super" - to call he parent constructor</h3>
+    <p id="p04"></p>
+
+<script>
+    class Car {
+        constructor(name, year) {
+            this.name = name;
+            this.year = year;
+        }
+        age() {
+            let date = new Date();
+            return date.getFullYear() - this.year;
+        }
+        age2(x) {
+            return x - this.year;
+        }
+    }
+
+    class Vehicle {
+        constructor(brand) {
+            this.carname = brand;
+        }
+        present() {
+            return "I have a " + this.carname;
+        }
+    }
+
+    class Model extends Vehicle {
+        constructor(brand, mod) {
+            super(brand);
+            this.model = mod;
+        }
+        show() {
+            return this.present() + ", it is a " + this.model;
+        }
+    }
+
+    let myCar = new Car("Honda", 2015);
+    let myCar2 = new Car("Toyota",2018);
+    let myCar3 = new Model("Ford", "Mustang");
+
+    let today = new Date();
+    let yearNow = today.getFullYear();
+
+    document.getElementById("p01").innerHTML = "My car is " + myCar.age() + " years old";
+    document.getElementById("p02").innerHTML = "I bought my car " + myCar.age2(yearNow) + " years ago";
+    document.getElementById("p03").innerHTML = "My daughter's cas is: " + myCar2.name;
+    document.getElementById("p04").innerHTML = myCar3.show();
+
+
+</script>
+</body>
+</html>
