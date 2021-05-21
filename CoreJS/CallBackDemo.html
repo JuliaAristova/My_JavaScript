@@ -1,10 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Callbacks</title>
 </head>
 <body>
-$END$
+    <h3>JS Callbacks</h3>
+    <p>Do calculation and then display the result</p>
+    <p>Calling 2 functions</p>
+    <p id="p01"></p>
+    <p>Calling 1 function - results are always displayed</p>
+    <p id="p02"></p>
+    <p>Callback is a function passed as an argument to another function</p>
+    <p id="p03"></p>
+    <p>Callback - Set TimeOut - asynchronous functions. Wait 3 seconds for page to change</p>
+    <h3 id="demo"></h3>
+
+    <p>We can pass function as an argument</p>
+    <h3 id="demo2"></h3>
+<script>
+    var result =  myCalculator(12,14);
+    myDisplayer(result);
+
+    myCalculator2(12,14);
+
+    myCalculatorCB(12, 14, myDisplayerCB);
+
+    setTimeout(myFunction, 3000);
+    setTimeout(function() {myFunction2("Java");}, 5000);
+
+
+    function myDisplayer(num) {
+        document.getElementById("p01").innerHTML = num;
+    }
+    function myDisplayer2(num) {
+        document.getElementById("p02").innerHTML = num;
+    }
+
+    function myDisplayerCB(num) {
+        document.getElementById("p03").innerHTML = num;
+    }
+
+    function myCalculator(num1, num2) {
+        let sum = num1 + num2;
+        return sum;
+    }
+    function myCalculator2(num1, num2) {
+        let sum = num1 + num2;
+        myDisplayer2(sum);
+    }
+
+    function myCalculatorCB(num1, num2, myCallBack) {
+        let sum = num1 + num2;
+        myCallBack(sum);
+    }
+
+    function myFunction() {
+        document.getElementById("demo").innerHTML = "I love JavaScript!";
+    }
+    function myFunction2(value) {
+        document.getElementById("demo2").innerHTML = "I love " + value + " too!";
+    }
+</script>
 </body>
 </html>

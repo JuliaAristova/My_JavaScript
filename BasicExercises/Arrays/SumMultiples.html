@@ -1,10 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Sum of Multiples</title>
 </head>
 <body>
-$END$
+<h3> Write a JavaScript program to sum the multiples of 3 and 5 under 1000. </h3>
+<p id="p01"></p>
+<script>
+    document.getElementById("p01").innerHTML = sumOf3and5Multiples();
+
+    function sumOf3and5Multiples() {
+        var sum = 0;
+        for (var i=0; i<=1000; i++) {
+           sum += (i%3==0 && i%5==0) ? i : 0;
+            }
+        return sum;
+        }
+
+
+    </script>
 </body>
 </html>
