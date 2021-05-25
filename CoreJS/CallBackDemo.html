@@ -18,6 +18,10 @@
 
     <p>We can pass function as an argument</p>
     <h3 id="demo2"></h3>
+
+    <h3>Set Interval</h3>
+    <h3 id="demo3"></h3>
+
 <script>
     var result =  myCalculator(12,14);
     myDisplayer(result);
@@ -60,6 +64,13 @@
     }
     function myFunction2(value) {
         document.getElementById("demo2").innerHTML = "I love " + value + " too!";
+    }
+
+    setInterval(myFunction3, 1000);
+
+    function myFunction3() {
+        let d = new Date();
+        document.getElementById("demo3").innerHTML = d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
     }
 </script>
 </body>

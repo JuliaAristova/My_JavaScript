@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <title>BOM - Window Screen</title>
+</head>
+<body>
+<h3>Browser Object Model - Window Screen</h3>
+<p id="p01"></p>
+<p id="p02"></p>
+<p id="p03"></p>
+<p id="p04"></p>
+<p id="p05"></p>
+<p id="p06"></p>
+<script>
+    document.getElementById("p01").innerHTML = "Screen width is " + screen.width;
+    document.getElementById("p02").innerHTML = "Screen height is " + screen.height;
+    document.getElementById("p03").innerHTML = "Screen available width is " + screen.availWidth;
+    document.getElementById("p04").innerHTML = "Screen available height is " + screen.availHeight;
+    document.getElementById("p05").innerHTML = "Screen color depth is " + screen.colorDepth;
+    document.getElementById("p06").innerHTML = "Screen pixel depth is " + screen.pixelDepth;
+
+</script>
+</body>
+</html>

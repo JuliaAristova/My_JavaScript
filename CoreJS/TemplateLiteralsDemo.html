@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Template Literals</title>
+</head>
+<body>
+<h3>Strig literals</h3>
+<p id="p01"></p>
+<h3>Array litelars</h3>
+<p id="p02"></p>
+<h3>Object literals</h3>
+<p id="p03"></p>
+<p id="p04"></p>
+
+<p id="p05"></p>
+<script>
+
+    const person = {
+        name: "Zodiac hasbro",
+        age: 56
+    };
+    const greeting = `Hello, my name is ${person.name}!
+        I am ${person.age} years old.`;
+
+    document.getElementById("p01").innerHTML = greeting;
+
+    const result = {
+        success: ["max-length", "no-amd", "prefer-aro-functions"],
+        failure: ["no-var", "var-on-top", "linebreak"],
+        skipped: ["id-blacklist", "no-dup=keys"]
+        };
+
+    function makeList(arr) {
+        const resultDisplayArray = [];
+        for (let i = 0; i < arr.length; i++) {
+            resultDisplayArray.push(`<li class="text-warning">${arr[i]}</li>`);
+        }
+        return resultDisplayArray;
+        }
+    const resultDisplayArr = makeList(result.failure);
+    document.getElementById("p02").innerHTML = resultDisplayArr;
+
+   const createPerson = (name, age, gender) => {
+       return {
+           name: name,
+           age: age,
+           gender: gender
+       };
+   }
+   console.log(createPerson("Tom", 52, "male"));
+   person1 =  createPerson("Anna", 50, "female");
+   document.getElementById("p03").innerHTML = person1.name + " " + person1.age+ " " + person1.gender;
+
+   const createPerson2 = (name, age,gender) => ( {name, age, gender} );
+   person2 =  person1 =  createPerson2("Maria", 55, "female");
+    document.getElementById("p04").innerHTML = person2.name + " " + person2.age+ " " + person2.gender;
+
+    class book {
+        constructor(author) {
+            this.author = author;
+        }
+        get writer() {
+            return this.author;
+        }
+        set writer(updatedAuthor) {
+            this.author = updatedAuthor;
+        }
+    }
+
+    <!-- define clasee inside the function and convert temperature-->
+    function makeClass () {
+        class Thermostat {
+            constructor(temp) {
+                this._temp = 5/9 * (temp - 32);
+            }
+            get temperature() {
+                return this._temp;
+            }
+            set temperature(updatedTemp) {
+                this._temp = updatedTemp;
+            }
+        }
+                return Thermostat;
+    }
+
+    const Thermostat = makeClass();
+    const thermos = new Thermostat(76);
+    let temp = thermos.temperature;
+    thermos.temperature = 26;
+    temp = thermos.temperature;
+
+    document.getElementById("p05").innerHTML = temp;
+</script>
+
+</body>
+</html>

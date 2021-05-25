@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mutate Constant</title>
+</head>
+<body>
+
+<h3> Mutate constant array</h3>
+<p id="p01"></p>
+<p id="p02"></p>
+
+<h3> Mutate constant object</h3>
+<p id="p03"></p>
+<p id="p04"></p>
+
+<script>
+    const arr = [2, 5, 7];
+    document.getElementById("p01").innerHTML = arr;
+
+    <!--  arr = [7, 5, 2]; -- Not possible this way -->
+    arr[0]= 7; arr[1] = 2; arr[2] = 5;
+    document.getElementById("p02").innerHTML = arr;
+
+    function freezeObj() {
+    "use strict"
+
+    const MATH_CONSTANTS = {
+        PI: 3.14
+    };
+    document.getElementById("p03").innerHTML = MATH_CONSTANTS.PI;
+    <!--to prevent changing the object-->
+        Object.freeze(MATH_CONSTANTS);
+
+    <!--without the part above we can change the object-->
+    try {
+        MATH_CONSTANTS.PI = 99;
+    } catch (ex) {
+        console.log(ex);
+    }
+    return MATH_CONSTANTS.PI
+    }
+    const PI = freezeObj();
+    document.getElementById("p04").innerHTML = PI;
+</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Arrow Function demo</title>
+</head>
+
+<body>
+<h3>Arrow Function</h3>
+
+<p id="p01"></p>
+<p id="p02"></p>
+
+<script>
+    var realNumberArr = [1, 4, 3.6, -7, 4.8, 9,2, -6, 7];
+    document.getElementById("p01").innerHTML = realNumberArr;
+
+    const squareList = (arr) => {
+        const squaredIntegers = arr.filter(num => Number.isInteger(num) && num > 0). map(x => x * x);
+        return squaredIntegers;
+    };
+    const squaredIntegers = squareList(realNumberArr);
+    document.getElementById("p02").innerHTML = squaredIntegers;
+</script>
+</body>
+</html>

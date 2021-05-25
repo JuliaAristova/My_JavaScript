@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BOM - window navigator</title>
+</head>
+<body>
+<h2>The Navigator Object</h2>
+
+<p>The<b> cookieEnabled</b> property returns true if cookies are enabled:</p>
+<p id="p01"></p>
+
+<p>The <b>appName</b> property returns the application name of the browser:</p>
+<p id="p02"></p>
+<p>Strange enough, "Netscape" is the application name for IE11, Chrome, Firefox, and Safari.</p>
+
+<p>The <b>appCodeName</b> property returns the code name of the browser.</p>
+<p id="p03"></p>
+<p>Do not rely on it! "Mozilla" is the application code name for Chrome, Firefox, IE, Safari, and Opera.</p>
+
+<p>The <b>product</b> property returns the product name of the browser.</p>
+<p id="p04"></p>
+<p>Do not rely on it! Most browsers returns "Gecko" as product name!</p>
+
+<p>The <b>appVersion</b> property returns version information about the browser:</p>
+<p id="p05"></p>
+
+<p>The <b>userAgent</b> property returns the user-agent header sent by the browser to the server:</p>
+<p id="p06"></p>
+
+<p>The <b>platform</b> property returns the browser platform (operating system):</p>
+<p id="p07"></p>
+
+<p>The <b>language</b> property returns the browser language:</p>
+<p id="p08"></p>
+
+<p>The <b>onLine</b> property returns true if the browser is online:</p>
+<p id="p09"></p>
+<p>The <b>javaEnabled() </b>method returns true if the browser is online:</p>
+<p id="p10"></p>
+<script>
+
+
+    document.getElementById("p01").innerHTML = "navigator.cookieEnabled is <b>" + navigator.cookieEnabled + "</b>";
+    document.getElementById("p02").innerHTML = "navigator.appName is <b>" + navigator.appName + "</b>";
+    document.getElementById("p03").innerHTML = "navigator.appName is <b> " + navigator.appCodeName + "</b>";
+    document.getElementById("p04").innerHTML = "navigator.product is <b>" + navigator.product + "</b>";
+    document.getElementById("p05").innerHTML = "navigator.appVersion is <b>" + navigator.appVersion + "</b>";
+    document.getElementById("p06").innerHTML = "navigator.userAgent is <b>" + navigator.userAgent + "</b>";
+    document.getElementById("p07").innerHTML = "navigator.platform is <b>" + navigator.platform + "</b>";
+    document.getElementById("p08").innerHTML = "navigator.language is <b>" + navigator.language + "</b>";
+    document.getElementById("p09").innerHTML = "navigator.online is <b>" + navigator.onLine + "</b>";
+    document.getElementById("p10").innerHTML = "navigator.javaEnabled is <b>" + navigator.javaEnabled() + "</b>";
+</script>
+
+</body>
+</html>

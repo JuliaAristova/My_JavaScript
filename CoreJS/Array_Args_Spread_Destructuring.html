@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Array arguments</title>
+</head>
+<body>
+
+<h3>Passing default parameter</h3>
+<p id="p01"></p>
+<p id="p02"></p>
+
+<h3>Rest Operator - 3 dots</h3>
+<p id="p03"></p>
+<p id="p04"></p>
+<p id="p05"></p>
+
+<h3>Spread Operator - 3 dots</h3>
+<p id="p06"></p>
+<p id="p07"></p>
+<p id="p08"></p>
+<p id="p09"></p>
+
+<h3>Quick way to assign values of object to variables</h3>
+<p id="p10"></p>
+
+<h3>Destructuring</h3>
+<p id="p11"></p>
+
+<h3>Destructuring of nested objects</h3>
+<p id="p12"></p>
+
+<h3>Destructuring of elements of array</h3>
+<p id="p13"></p>
+
+
+<h3>Destructuring to switch values</h3>
+<p id="p14"></p>
+<p id="p15"></p>
+
+<h3>Destructuring with Rest</h3>
+<p id="p16"></p>
+<p id="p17"></p>
+
+<h3>Destruction assignment</h3>
+<p id="p18"></p>
+<p id="p19"></p>
+
+<script>
+    const increment = (function () {
+        <!-- default value. If value is not passed in it will set automatically-->
+        return function increment(number, value = 1) {
+            return number + value;
+        }
+    }) ();
+
+    document.getElementById("p01").innerHTML = increment(5, 2);
+    document.getElementById("p02").innerHTML = increment(5);
+
+    const sum = (function () {
+        return function sum(x,y,z) {
+            const args = [x,y, z];
+            return args.reduce((a,b) => a+b, 0);
+        }
+    }) ();
+    document.getElementById("p03").innerHTML = sum(1, 2, 3);
+
+    const sum2 = (function () {
+        <!-- Using Rest Operator-->
+        return function sum(...args) {
+            return args.reduce((a,b) => a+b, 0);
+        }
+    }) ();
+    document.getElementById("p04").innerHTML = sum2(1, 2, 3);
+    document.getElementById("p05").innerHTML = sum2(1, 2, 3, 4);
+
+    const arr1 = ['Jan', 'Feb', 'Mar', 'App', 'May'];
+    let arr2;
+    arr2 = arr1;
+    arr1[0] = 'potato';
+
+    document.getElementById("p06").innerHTML = arr1;
+    document.getElementById("p07").innerHTML = arr2;
+
+    const arr3 = ['Jan', 'Feb', 'Mar', 'App', 'May'];
+    let arr4;
+    (function () {
+        <!-- we make array 4 content equal to array3 using spread operator-->
+    arr4 = [...arr3];
+    arr3[0] = 'cucumber';
+    })();
+
+    document.getElementById("p08").innerHTML = arr3;
+    document.getElementById("p09").innerHTML = arr4;
+
+    var voxel = {x: 3.6, y: 4.7, z: 6.54};
+    <!-- old way to assign values of objects properties to variables-->
+    var x = voxel.x;
+    var y = voxel.y;
+    var z = voxel.z;
+
+    <!-- new way - we create variables a,b,c and assign values of x,y,z-->
+    const {x: a, y: b, z: c} = voxel
+    document.getElementById("p10").innerHTML = a;
+
+    const AVG_TEMPERATURES = {
+        today: 77.5,
+        tomorrow: 79,
+        yesterday: 78
+        };
+
+    function getTempPfTmrw(avgTemperatures) {
+        "use strict";
+        <!-- take tomorrow from avgTemperatures and assign it to tempOfTomorrow-->
+        const { yesterday:  tempOfTomorrow } = avgTemperatures;
+        return tempOfTomorrow;
+    }
+    document.getElementById("p11").innerHTML = getTempPfTmrw(AVG_TEMPERATURES);
+
+    var LOCAL_FORECAST = {
+        today: {min: 72, max: 83},
+        tomorrow: {min: 73.3, max: 84.6}
+    };
+
+    function getMaxOfTmrw(forecast) {
+        "use strict";
+
+        const { tomorrow : { max: maxOfTomorrow }} = forecast;
+        return maxOfTomorrow;
+    }
+    document.getElementById("p12").innerHTML = getMaxOfTmrw(LOCAL_FORECAST);
+
+    <!-- o, p, q, t- 2 variables-->
+    const [o, p, ,q, , t] = [1,2,3,4,5,6];
+    document.getElementById("p13").innerHTML = o + " - " + p + " - " + q + " - " + t;
+
+    let d = 10, e = 6;
+    document.getElementById("p14").innerHTML = "d = " + d + ", e = " + e;
+
+    ( () => {
+        "use strict";
+        [d,e] = [e,d];
+    }) ();
+    document.getElementById("p15").innerHTML = "d = " + d + ", e = " + e;
+
+    const source = [1,2,3,4,5,6,7,8,9,10];
+
+    function removeFirstTwo(list) {
+        <!-- to remove use comas, to replace put new values-->
+        const [ , , ...arr] = list;
+        return arr;
+    }
+    const arr = removeFirstTwo(source);
+    document.getElementById("p16").innerHTML = source;
+    document.getElementById("p17").innerHTML = arr;
+
+    const stats = {
+        max: 56.78,
+        standard_deviation: 4.34,
+        mwdian: 34.54,
+        mode: 23.87,
+        min: -0.75,
+        average: 35.85
+    };
+    const  half = ( function () {
+            return  function half( { max, min} ) {
+            return (max + min) / 2.0;
+        };
+    }) ();
+
+    const  half2 = ( function () {
+      <!-- instead of passing stats, we pass what wee need - max and min-->
+        return  function half( { max, min} ) {
+        return (max + min) / 2.0;
+        };
+    }) ();
+    document.getElementById("p18").innerHTML = half(stats);
+    document.getElementById("p19").innerHTML = half2(stats);
+</script>
+</body>
+</html>

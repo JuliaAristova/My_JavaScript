@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Arrays drawings</title>
+</head>
+<body>
+<h3>Draw halve of triangle</h3>
+
+<p id="p01"></p>
+
+<button onclick="drawing1()">Click me</button>
+
+<script>
+
+    function drawing1() {
+        let drawing = "";
+        for(let i=0; i<5; i++) {
+            let result = "";
+            for (let j = 0; j <=i; j++) {
+                result += "* ";
+            }
+            console.log(result + "\n");
+            drawing += result + "<br>";
+        }
+    document.getElementById("p01").innerHTML = drawing;
+    }
+
+</script>
+</body>
+</html>

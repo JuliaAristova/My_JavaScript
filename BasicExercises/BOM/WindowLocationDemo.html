@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <title>BOM - Window Screen</title>
+</head>
+<body>
+<h3>Browser Object Model - Window Location</h3>
+<p id="p01"></p>
+<p id="p02"></p>
+<p id="p03"></p>
+<p id="p04"></p>
+<p id="p05"></p>
+
+<input type="button" value="Load new document" onclick="newDoc()"><script>
+
+    document.getElementById("p01").innerHTML = "The full URL of this page is: " + window.location.href;
+    document.getElementById("p02").innerHTML = "Page hostname is " + window.location.hostname;
+    document.getElementById("p03").innerHTML = "Page path is " + window.location.pathname;
+    document.getElementById("p04").innerHTML = "Page protocol is " + window.location.protocol;
+    document.getElementById("p05").innerHTML = "Port number is " + window.location.port;
+
+    function newDoc() {
+        window.location.assign("https://www.w3schools.com")
+    }
+</script>
+</body>
+</html>

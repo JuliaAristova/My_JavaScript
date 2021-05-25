@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Import Demo</title>
+    <script>
+        import  {multiplyArray} from "./ExportFunctionDemo"
+        const product = multiplyArray([[1,2], [11,12]]);
+        document.getElementById("p01").innerHTML = product;
+    </script>
+</head>
+
+<body>
+<h3>Import demo</h3>
+<p>multiplyArray(arr) function is in ArraysDemo file</p>
+<p id="p01"></p>
+
+</body>
+</html>
